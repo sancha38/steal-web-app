@@ -1,0 +1,116 @@
+html, body, h1, h2, h3, h4, p, img { margin: 0;} /* margin reset*/
+
+p{font-size: 12pt;}
+
+.items-group {
+  border-style: solid;
+  border-color: black;
+  border-width: 1pt 1pt 1pt 1pt;
+  border-radius: 5pt;
+  padding: 3pt 4pt 3pt 3pt;
+  margin: 8pt 0 8pt 0;
+}
+.table{
+  border-style: solid;
+ 
+  border-color: black;
+  border-width: 1pt 1pt 1pt 1pt;
+  
+}
+.table thead{
+  color:  	#514fa3;
+  font-weight: 600;
+  font-size: 16pt;
+}
+.table tbody{
+  font-size: 16pt;
+}
+
+.logotipo {display: block;
+  margin: auto;
+  width: 30%;
+}
+.address{
+  display: block;
+  margin: auto;
+  text-align: center;
+  font-weight: 600;
+  color:  	#514fa3;
+}
+.note{
+  font-weight: 600;
+  font-size: 16pt;
+  color:  	#514fa3;
+}
+
+dt { float: left; clear: left; width: 4em; font-weight: bold; font-size: 18pt; 
+  color:  	#514fa3;}
+dd { float: left; font-size: 18pt;font-weight:600;}
+
+
+
+.disclaimer, p {
+  font-size: 15pt;
+  font-weight: 500;
+  color:  	#514fa3;
+}
+
+.signature-field {
+  padding-bottom: 24pt;
+  border-bottom: solid black 1pt;
+}
+
+
+
+
+/*
+.container {
+  display: grid;
+  grid: "numero numero"
+        "logo loja"
+        "clt-lbl clt"
+        "da-lbl da";
+  grid-row-gap: 1cm;
+}
+
+.label-group {
+  border-left: solid black 1pt;
+  border-top: solid black 1pt;
+  border-top-left-radius: 10pt;
+  padding: 9pt 0 0 9pt
+}
+
+.description-group {
+  border-top: solid black 1pt;
+  padding: 9pt 0 0 9pt
+}
+
+.numero {
+  grid-area: numero;
+}
+
+.loja {
+  grid-area: loja;
+}
+
+.logotipo {
+  grid-area: logo;
+}
+
+.cliente-label {
+  grid-area: clt-lbl;
+}
+
+.cliente {
+  grid-area: clt;
+}
+
+.detalhes-assistencia-label {
+  grid-area: da-lbl;
+}
+
+.detalhes-assistencia {
+  grid-area: da;
+}
+
+*/

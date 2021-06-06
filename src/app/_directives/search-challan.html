@@ -1,0 +1,28 @@
+
+<ng-template #content let-modal style="z-index: 1050"  >
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Enter Challan</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+          <label for="dateOfBirth">Challan#</label>
+          
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">{{prefix}}</span>
+              </div>
+              <input type="text" #challanNumber class="form-control" placeholder="challan" required >
+            </div>
+            <div class="alert alert-danger p-3 pl-md-2" role="alert" *ngIf="message">
+              {{message}}
+            </div>
+            
+        </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="searchChallan(challanNumber)">search</button>
+    </div>
+  </ng-template>

@@ -1,0 +1,19 @@
+
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  td, th {
+    padding: .25em;
+    border: 1px solid black;
+  }
+  
+  tbody:nth-child(odd) {
+    background: #CCC;
+  }
+  
+  tbody:hover td[rowspan], tr:hover td {
+     background: red; 
+  }

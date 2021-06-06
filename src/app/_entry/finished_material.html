@@ -1,0 +1,135 @@
+<div class="contact">
+  <div class="alert alert-success" role="alert" *ngIf="flag">
+    Data saved successfully.
+  </div>
+  <search-challan #challanSearch prefix="FINIS-" (searchResult)="populateSearchChallan($event)"></search-challan>
+	<div class="row">   
+
+		<div class="col-md-12">
+      <form [formGroup]="entryform" class="contact-form" (ngSubmit)="submit()">  
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">FINIS-</span>
+              </div>
+              <input type="text" class="form-control" formControlName="challan" [readonly]="disable"  placeholder="challan" required >
+            </div>
+          </div>
+          <div  class="form-group col-md-5 ml-auto "></div>
+          <div class="form-group col-md-3 ml-auto ">
+            <div class="input-group">             
+              <a class="btn btn-outline-primary float-right mr-2" (click)="challanSearch.open()">SEARCH CHALLAN</a>
+              <a class="btn btn-outline-primary " (click)="reset()">RESET</a>
+             
+            </div>
+           </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            
+            <label for="inputEmail4" class="col-sm-2 col-form-label">Date</label>
+            <div class="input-group">
+              <input class="form-control" 
+                  name="dp" formControlName="recdate" ngbDatepicker #d="ngbDatepicker" value="recdate">
+               <div class="input-group-append">
+                <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+              </div>
+            </div>
+        </div>
+          <div class="form-group col-md-6">
+            <label for="material" class="col-sm-2 col-form-label">Product</label>
+            <select class="custom-select" id="id" (change)="onChange($event)" formControlName="product" >
+              <option [value]="m" *ngFor="let m of productlist">{{m}}</option>
+            </select>
+           </div>
+        
+        <div class="form-group col-md-6">
+          <label for="size" class="col-sm-2 col-form-label">Size</label>
+          <select class="custom-select" id="id"  formControlName="size">
+            <option [value]="m" *ngFor="let m of sizedropdown">{{m}}</option>
+          </select>
+         </div>
+         <div class="form-group col-md-6">
+          <label for="weight" class="col-sm-2 col-form-label">Nos.</label>
+          <input class="form-control" type="text" formControlName="qty"
+           required>
+         </div>
+         <div class="form-group" >    
+                  <div class="col-sm-offset-4 col-sm-4" >
+                      <button type="submit" class="btn btn-default center-block " [disabled]="!entryform.valid">{{action}}</button>
+                  </div>
+        </div>
+        
+        </div>
+      </form> 
+        
+        
+      <div class="row" *ngIf="dataTosave?.length > 0">
+        <table class="table table-striped table-bordered table-hover" >
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Challan No</th>
+              <th scope="col">Date</th>
+              <th scope="col">Product</th>
+              <th scope="col">Size</th>
+              <th scope="col">Qty</th>
+              <th scope="col">Consumed SemiFinished</th>
+              <th scope="col">Consumed Raw</th>           
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let rawTxn of dataTosave;let indexOfelement=index;">
+              <td scope="row">{{indexOfelement+1}}</td>
+              <td>{{rawTxn.challan}}</td>
+              <td>{{format_date(rawTxn.recdate)}}</td>
+              <td>{{rawTxn.product}}</td>
+              <td>{{rawTxn.size}}</td>
+              <td>{{rawTxn.stock}}</td>
+              <td>
+                <div class="row" *ngFor="let semi of rawTxn.semiProdList">
+                <div class="col-sm">
+                  {{semi.product}}
+                </div>
+                <div class="col-sm">
+                 {{semi.size}}
+                </div>
+              </div>
+              </td>
+              <td>
+                <div class="row" *ngFor="let raw of rawTxn.rawMaterialList">
+                  <div class="col-sm">
+                    {{raw.material}}
+                  </div>
+                  <div class="col-sm">
+                   {{raw.size}}
+                  </div>
+                  <div class="col-sm">
+                    {{raw.weight}}
+                   </div>
+                </div>
+              </td>              
+              <td>
+                  <button class="btn btn-success btn-sm rounded-0" type="button" (click)="edit(indexOfelement)" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+               
+                <button class="btn btn-danger btn-sm rounded-0" type="button" (click)="delete(indexOfelement)" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+            
+              </td>
+            </tr>
+          </tbody>
+        </table>
+       
+      </div>
+      <div class="form-group " *ngIf="dataTosave?.length > 0">    
+        <div class="col-sm-offset-4 col-sm-6" style="left:50%;">
+          <button type="submit" class="btn btn-default" (click)="save()">save</button>
+        </div>
+      </div>
+        
+
+      </div>
+    </div>
+	</div>
+

@@ -1,0 +1,146 @@
+body{
+    background-color: #25274d;
+}
+.contact{
+    padding: 2% 1%;
+    height: 400px;
+}
+.inventory{
+    background: #ff9b00;
+    padding: 2%;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    height: 100%;
+
+}
+.contact-info{
+    margin-top:10%;
+}
+.contact-info img{
+    margin-bottom: 15%;
+}
+.contact-info h2{
+    margin-bottom: 10%;
+}
+.col-md-9{
+    background: #fff;
+    padding: 3%;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+}
+.contact-form label{
+    font-weight:600;
+}
+button{
+    background: #25274d;
+    color: #fff;
+    font-weight: 600;
+   
+}
+.contact-form button:focus{
+    box-shadow:none;
+}
+
+select option{
+    margin: 40px;
+  background: rgba(9, 19, 105, 0.3);
+  color: #fff;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+}
+
+td {
+    text-align: center;
+  }
+  th{
+    text-align: center;
+  }
+
+
+  i {
+    display: inline-block;
+    margin-right: 1em;
+  }
+  li
+  {
+    list-style-type: none;
+    padding:5px;
+  }
+  ul{padding-left:0px;}
+  .activebooks
+  {
+  border:1px solid #848FD8;
+  padding:0px 10px;
+  margin-top:-2px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  
+  }
+  .dropdown .fa-plus
+  { 
+  padding:4px;
+  margin-top:-2px;
+  margin-right:0px;
+  }
+  
+  .list
+  {
+    padding-left:20px;
+  }
+  .dropdown
+  {
+    margin-left:-15px;
+  }
+  .submenu > li
+  { display:list-item;
+  list-style-type: none;
+  color: #fff;
+  
+  }
+  .submenu{
+    padding-left:12px;
+  }
+  .submenu > li:hover
+  {
+    color:blue;
+  }
+  .category::before, .category::after, .submenu::after
+  {
+    content:" ";
+    white-space:pre;
+  }
+  i.fa.fa-circle-thin
+  {
+    color:#00ff74;
+  }
+  li:hover{
+    background-color:rgba(255, 255, 255, 0.25);
+    cursor:pointer;
+  }
+  .pull-right {
+    float: right !important;
+}
+print-challan{
+  /* hide the printing component from @media screen */
+  display: none;
+}
+
+@media print {
+  /* invert the display (show/hide) properties of the main */
+  /* aplication component and the printing component       */
+
+  print-challan {
+    display: block;
+  }
+
+  .contact{
+    display: none;
+  }
+  body {
+    zoom: .8;
+    -webkit-print-color-adjust: exact !important;
+}
+  
+
+}

@@ -1,0 +1,67 @@
+<div class="row">
+    <div class="col-md-12">
+        <form [formGroup]="myForm" class="contact-form"(ngSubmit)="submit()">  
+           <div class="form-row">
+      <div class="form-group col-md-3">
+        <label for="material" class="col-sm-4 col-form-label">Looking for</label>
+        <ng-multiselect-dropdown
+        class="col-md-3"
+        name="show"
+        [placeholder]="'show'"
+        [data]="showlist"
+        formControlName="searchBy"
+        [disabled]="disabled"
+        [settings]="dropdownSettings"
+        (onSelect)="onItemSelect($event)">
+        </ng-multiselect-dropdown>
+      </div>
+      <div class="form-group col-md-3">
+        
+        <label for="inputEmail4" class="col-sm-4 col-form-label">from date</label>
+        <div class="input-group">
+          <input class="form-control" 
+              name="fd" formControlName="fromDate" ngbDatepicker #d="ngbDatepicker" value="fromDate" required [disabled]='disableDate'>
+           <div class="input-group-append">
+            <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+          </div>
+        </div>
+    </div>
+    <div class="form-group col-md-3">
+        
+      <label for="inputEmail4" class="col-sm-4 col-form-label">To date</label>
+      <div class="input-group">
+        <input class="form-control" 
+            name="td" formControlName="toDate" ngbDatepicker #e="ngbDatepicker" value="toDate" required [disabled]='disableDate'>
+         <div class="input-group-append">
+          <button class="btn btn-outline-secondary calendar" (click)="e.toggle()" type="button"></button>
+        </div>
+      </div>
+  </div>
+      <div class="form-group col-md-3">
+      <label for="size" class="col-sm-2 col-form-label">Report</label>
+      <ng-multiselect-dropdown
+        class="col-md-3"
+        name="inventory"
+        [placeholder]="'Choose Inventory'"
+        [data]="inventory"
+        formControlName="trans"
+        [disabled]="disabled"
+        [settings]="dropdownSettings">
+        </ng-multiselect-dropdown>
+      </div>
+    </div>
+   
+ <div class="row">
+     <div class="form-group col-md-2" >
+              <div class="col-sm-offset-4" >
+                  <button type="submit" class="btn btn-default center-block " [disabled]="!myForm.valid">search</button>
+              </div>
+    </div>
+    
+    
+    </div>
+  </form> 
+        
+    </div>
+
+</div>

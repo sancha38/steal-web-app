@@ -1,0 +1,85 @@
+<div class="container-fluid items-group">
+    <div class="row mt-3">
+      <div class="col">
+        <img
+        src="../../assets/chalanlogo.png"
+        class="logotipo">
+      </div>
+    </div>  
+    <div class="row no-gutters mt-2">  
+      <div class="col">
+        <h2 class="address">Gate No. 1353, Plot No. 40, Godown Wadki,Tal. Haveli, Dist. Pune-412308</h2>
+      </div>
+    </div>
+  
+    <div class="row no-gutters" >
+      <div class="col-9"style="margin: auto;">
+        <dt>Name:</dt>
+        <dd>{{name}}</dd>
+      </div>
+  
+      <div class="col-3">
+        <dt>Date:</dt>
+        <dd *ngIf="receiptDate">{{receiptDate.day}}/{{receiptDate.month}}/{{receiptDate.year}}
+        </dd>
+      </div>
+    </div>
+
+    <div class="row no-gutters mt-2">
+        <div class="col-9">
+         <h2 class="note">Please receive the following goods and acknowlegde.</h2>
+        </div>
+        <div class="col-3">
+            <dt>No:</dt>
+            <dd>{{challanNo}}</dd>
+        </div>
+    </div>
+  
+    <div class="row no-gutters" >
+     <table class="table table-bordered items-group">
+         <thead>
+          <tr>
+            <th>SrNo.</th>
+            <th>Particulars</th>
+            <th>Weight/Qty.</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let txn of itemList;let indexOfelement=index;">
+                <td>{{indexOfelement+1}}</td>
+                <td>{{txn.product}}</td>
+                <td>{{txn.stock}}</td>
+              </tr>
+        </tbody>
+         
+     </table>
+    </div>
+    <div class="row no-gutters mt-2">
+        <div class="col-8">
+            <dt>Vehicle:</dt>
+            <dd>{{vehicleNumber}}</dd>
+          </div>
+          <div class="col-4">
+            <dt>GSTIN:</dt>
+            <dd>27ACBPJ4505ZE123</dd>
+          </div>
+    </div>
+
+    <div class="row no-gutters mt-3">
+      <div class="col">
+        <p class="label">Term and Condition:</p>
+        
+              <ul class="disclaimer">
+                <li>No complaints will be accepted after 5 days of delivery</li>
+                <li>Received the above goods in good order and condition</li>
+              </ul>
+            </div>
+          </div>
+        
+          <div class="row no-gutters">
+              <div class="col-12">
+                  <dt style="width: 15%;">Receiver's Signature:</dt>
+                  <dd></dd>
+              </div>
+          </div>
+  </div>
